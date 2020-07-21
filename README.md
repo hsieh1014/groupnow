@@ -1,7 +1,10 @@
 # GroupNow
-**Persona**
+
+## Persona
 ![](S__12689412.jpg)
-**User map**
-![](UX MAP.png)
-**Functional Ma**
+
+## User map
+![](UXMAP.jpg)
+
+## Functional Map
 ![](Group_now.png)
