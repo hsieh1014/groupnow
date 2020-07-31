@@ -1,14 +1,7 @@
-//
-//  SceneDelegate.swift
-//  groupnow
-//
-//  Created by 謝沂瑾 on 2020/6/21.
-//  Copyright © 2020 chin. All rights reserved.
-//
-
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate
+{
 
     var window: UIWindow?
 

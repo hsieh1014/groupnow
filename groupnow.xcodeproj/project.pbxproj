@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		074C5E0E24B6C66F00C46F8D /* historyorderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074C5E0D24B6C66F00C46F8D /* historyorderTableViewCell.swift */; };
 		074C5E1024B6CCFD00C46F8D /* cartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074C5E0F24B6CCFD00C46F8D /* cartTableViewCell.swift */; };
 		074C5E1224B7095D00C46F8D /* orderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074C5E1124B7095D00C46F8D /* orderTableViewCell.swift */; };
 		0761667B24B053020097BD8D /* productModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0761667A24B053020097BD8D /* productModel.swift */; };
@@ -23,7 +22,6 @@
 		079A7415249F5C6A00CBAD37 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A7414249F5C6A00CBAD37 /* profileViewController.swift */; };
 		079A7417249F5C7800CBAD37 /* editprofileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A7416249F5C7800CBAD37 /* editprofileViewController.swift */; };
 		079A7419249F5C8100CBAD37 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A7418249F5C8100CBAD37 /* searchViewController.swift */; };
-		079A741B249F5C9300CBAD37 /* historyorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A741A249F5C9300CBAD37 /* historyorderViewController.swift */; };
 		079A741D249F5C9D00CBAD37 /* orderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A741C249F5C9D00CBAD37 /* orderViewController.swift */; };
 		079A741F249F5CA900CBAD37 /* cartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A741E249F5CA900CBAD37 /* cartViewController.swift */; };
 		079A742124A0653700CBAD37 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A742024A0653700CBAD37 /* loginViewController.swift */; };
@@ -36,7 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		074C5E0D24B6C66F00C46F8D /* historyorderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyorderTableViewCell.swift; sourceTree = "<group>"; };
 		074C5E0F24B6CCFD00C46F8D /* cartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartTableViewCell.swift; sourceTree = "<group>"; };
 		074C5E1124B7095D00C46F8D /* orderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderTableViewCell.swift; sourceTree = "<group>"; };
 		0761667A24B053020097BD8D /* productModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productModel.swift; sourceTree = "<group>"; };
@@ -54,7 +51,6 @@
 		079A7414249F5C6A00CBAD37 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		079A7416249F5C7800CBAD37 /* editprofileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editprofileViewController.swift; sourceTree = "<group>"; };
 		079A7418249F5C8100CBAD37 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
-		079A741A249F5C9300CBAD37 /* historyorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyorderViewController.swift; sourceTree = "<group>"; };
 		079A741C249F5C9D00CBAD37 /* orderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderViewController.swift; sourceTree = "<group>"; };
 		079A741E249F5CA900CBAD37 /* cartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartViewController.swift; sourceTree = "<group>"; };
 		079A742024A0653700CBAD37 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
@@ -106,22 +102,20 @@
 				079A73F7249F5B8800CBAD37 /* SceneDelegate.swift */,
 				079A742024A0653700CBAD37 /* loginViewController.swift */,
 				079A740E249F5C4900CBAD37 /* signupViewController.swift */,
-				079A7414249F5C6A00CBAD37 /* profileViewController.swift */,
 				079A7410249F5C5200CBAD37 /* homeViewController.swift */,
-				079A7416249F5C7800CBAD37 /* editprofileViewController.swift */,
-				079A742624A0A4B400CBAD37 /* addViewController.swift */,
 				079A742424A07EC100CBAD37 /* productTableViewCell.swift */,
-				0761667A24B053020097BD8D /* productModel.swift */,
 				079A7412249F5C5D00CBAD37 /* productViewController.swift */,
-				074C5E0D24B6C66F00C46F8D /* historyorderTableViewCell.swift */,
-				079A741A249F5C9300CBAD37 /* historyorderViewController.swift */,
+				079A7414249F5C6A00CBAD37 /* profileViewController.swift */,
+				079A7416249F5C7800CBAD37 /* editprofileViewController.swift */,
+				079A7418249F5C8100CBAD37 /* searchViewController.swift */,
+				079A742624A0A4B400CBAD37 /* addViewController.swift */,
+				0761667A24B053020097BD8D /* productModel.swift */,
+				079A741C249F5C9D00CBAD37 /* orderViewController.swift */,
 				074C5E1124B7095D00C46F8D /* orderTableViewCell.swift */,
 				07FA19A724BB0C9800EFC1C4 /* orderModel.swift */,
-				079A741C249F5C9D00CBAD37 /* orderViewController.swift */,
-				074C5E0F24B6CCFD00C46F8D /* cartTableViewCell.swift */,
 				079A741E249F5CA900CBAD37 /* cartViewController.swift */,
+				074C5E0F24B6CCFD00C46F8D /* cartTableViewCell.swift */,
 				07FA19AB24BD9AA100EFC1C4 /* resultTableViewCell.swift */,
-				079A7418249F5C8100CBAD37 /* searchViewController.swift */,
 				079A73FB249F5B8800CBAD37 /* Main.storyboard */,
 				079A7401249F5B8A00CBAD37 /* Assets.xcassets */,
 				079A7403249F5B8A00CBAD37 /* LaunchScreen.storyboard */,
@@ -274,7 +268,6 @@
 				079A73F6249F5B8800CBAD37 /* AppDelegate.swift in Sources */,
 				079A7400249F5B8800CBAD37 /* groupnow.xcdatamodeld in Sources */,
 				07FA19AC24BD9AA100EFC1C4 /* resultTableViewCell.swift in Sources */,
-				079A741B249F5C9300CBAD37 /* historyorderViewController.swift in Sources */,
 				0761667B24B053020097BD8D /* productModel.swift in Sources */,
 				079A740F249F5C4900CBAD37 /* signupViewController.swift in Sources */,
 				079A741D249F5C9D00CBAD37 /* orderViewController.swift in Sources */,
@@ -282,7 +275,6 @@
 				074C5E1224B7095D00C46F8D /* orderTableViewCell.swift in Sources */,
 				079A7413249F5C5D00CBAD37 /* productViewController.swift in Sources */,
 				079A73F8249F5B8800CBAD37 /* SceneDelegate.swift in Sources */,
-				074C5E0E24B6C66F00C46F8D /* historyorderTableViewCell.swift in Sources */,
 				079A742724A0A4B400CBAD37 /* addViewController.swift in Sources */,
 				079A742524A07EC100CBAD37 /* productTableViewCell.swift in Sources */,
 			);

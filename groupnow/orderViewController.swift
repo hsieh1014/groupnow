@@ -2,6 +2,9 @@ import UIKit
 import Firebase
 class orderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
+    //nav
+    @IBOutlet weak var nav: UINavigationBar!
+    
     var ref : DatabaseReference?
     var databasehandle : DatabaseHandle?
     var alreadypayorder = [String]()
@@ -18,10 +21,37 @@ class orderViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier:"order",for:indexPath) as! orderTableViewCell
         let orders : orderModel
         orders = Buylist[indexPath.row]
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        cell.backgroundColor = backgroundColor
+        let labelbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        cell.orderview.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
         cell.orderpageName.text = orders.productname
+        cell.orderpageName.textColor = labelbackgroundColor
         cell.orderpagePrice.text = orders.productprice
+        cell.orderpagePrice.textColor = labelbackgroundColor
         cell.orderpagemember.text = orders.productmember
+        cell.orderpagemember.textColor = labelbackgroundColor
         cell.orderpageTotal.text = orders.producttotalmember
+        cell.orderpageTotal.textColor = labelbackgroundColor
+        cell.slash.textColor = labelbackgroundColor
         let storageRef = Storage.storage().reference(forURL: "gs://groupnow-14e0a.appspot.com/")
         var imageName = "product/"
         imageName.append(orders.productid!)
@@ -44,6 +74,32 @@ class orderViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
     override func viewDidLoad()
     {
+        //View
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        view.backgroundColor = backgroundColor
+        
+        //nav
+        let labelbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        nav.tintColor = labelbackgroundColor
+        
         //show already pay
         ref = Database.database().reference().child("order").child(user)
         ref?.observe(DataEventType.value, with:

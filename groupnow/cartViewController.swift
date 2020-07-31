@@ -3,6 +3,13 @@ import Firebase
 import FirebaseStorage
 class cartViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
+    //nav
+    @IBOutlet weak var nav: UINavigationBar!
+    
+    @IBOutlet weak var buttom: UIView!
+    @IBOutlet weak var countprice: UIView!
+    @IBOutlet weak var totalpricelabel: UILabel!
+    
     //user
     //set user database
     var userdb: Firestore!
@@ -94,12 +101,40 @@ class cartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier:"cart",for:indexPath) as! cartTableViewCell
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        cell.backgroundColor = backgroundColor
+        cell.productview.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+        let labelbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
         let orders : orderModel
         orders = Order[indexPath.row]
         cell.productNameCart.text = orders.productname
+        cell.productNameCart.textColor = labelbackgroundColor
         cell.productPriceCart.text = orders.productprice
+        cell.productPriceCart.textColor = labelbackgroundColor
         cell.productMemberCart.text = orders.productmember
+        cell.productMemberCart.textColor = labelbackgroundColor
         cell.productTotalCart.text = orders.producttotalmember
+        cell.productTotalCart.textColor = labelbackgroundColor
+        cell.ntd.textColor = labelbackgroundColor
+        cell.slash.textColor = labelbackgroundColor
         let storageRef = Storage.storage().reference(forURL: "gs://groupnow-14e0a.appspot.com/")
         var imageName = "product/"
         imageName.append(orders.productid!)
@@ -145,9 +180,49 @@ class cartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
     override func viewDidLoad()
     {
+        //View
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        let pricebackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.64, green: 0.69, blue: 0.54, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        let labelbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        view.backgroundColor = backgroundColor
+        buttom.backgroundColor = backgroundColor
+        countprice.backgroundColor = pricebackgroundColor
+        totalpricelabel.textColor = labelbackgroundColor
+        totalprice.textColor = labelbackgroundColor
+        
+        //nav
+        nav.tintColor = labelbackgroundColor
+        
         paybtn.layer.cornerRadius = 0.5 * paybtn.bounds.size.width
         paybtn.clipsToBounds = true
-        paybtn.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 65/255, alpha: 1)
+        paybtn.backgroundColor = pricebackgroundColor
 
         ref = Database.database().reference().child("order").child(user)
         ref?.observe(DataEventType.value, with:

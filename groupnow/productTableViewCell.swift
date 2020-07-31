@@ -1,5 +1,4 @@
 import UIKit
-
 class productTableViewCell: UITableViewCell
 {
 
@@ -7,6 +6,8 @@ class productTableViewCell: UITableViewCell
     @IBOutlet weak var homePageProductName: UILabel!
     @IBOutlet weak var homePageMember: UILabel!
     @IBOutlet weak var homePageTotalMember: UILabel!
+    @IBOutlet weak var homePageView: UIView!
+    @IBOutlet weak var slash: UILabel!
     
     override func awakeFromNib()
     {

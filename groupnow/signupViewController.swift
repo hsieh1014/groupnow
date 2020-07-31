@@ -17,6 +17,11 @@ class signupViewController: UIViewController
     @IBOutlet weak var useremailTextField: UITextField!
     @IBOutlet weak var userpasswordTextField: UITextField!
     @IBOutlet weak var useraddressTextField: UITextField!
+    @IBOutlet weak var nameText: UILabel!
+    @IBOutlet weak var mobileText: UILabel!
+    @IBOutlet weak var emailText: UILabel!
+    @IBOutlet weak var passwordText: UILabel!
+    @IBOutlet weak var addressText: UILabel!
     
     @IBOutlet weak var save: UIButton!
     @IBAction func signupBtn(_ sender: Any)
@@ -37,10 +42,72 @@ class signupViewController: UIViewController
     
     override func viewDidLoad()
     {
+        //View
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        view.backgroundColor = backgroundColor
+        
+        //Text and Textfield
+        let textfieldbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        let textbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.23, green: 0.23, blue: 0.23, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        nameText.textColor = textbackgroundColor
+        mobileText.textColor = textbackgroundColor
+        emailText.textColor = textbackgroundColor
+        passwordText.textColor = textbackgroundColor
+        addressText.textColor = textbackgroundColor
+        usernameTextField.backgroundColor = textfieldbackgroundColor
+        userphoneTextField.backgroundColor = textfieldbackgroundColor
+        useremailTextField.backgroundColor = textfieldbackgroundColor
+        userpasswordTextField.keyboardType = UIKeyboardType.emailAddress
+        userpasswordTextField.backgroundColor = textfieldbackgroundColor
+        userpasswordTextField.isSecureTextEntry = true
+        useraddressTextField.backgroundColor = textfieldbackgroundColor
+        usernameTextField.textColor = textbackgroundColor
+        userphoneTextField.textColor = textbackgroundColor
+        useremailTextField.textColor = textbackgroundColor
+        userpasswordTextField.textColor = textbackgroundColor
+        useraddressTextField.textColor = textbackgroundColor
+        
         //save Btn
         save.layer.cornerRadius = 0.5 * save.bounds.size.width
         save.clipsToBounds = true
-        save.backgroundColor = UIColor(red: 58/255, green: 90/255, blue: 64/255, alpha: 1)
+        let btnbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        save.backgroundColor = btnbackgroundColor
         
         //user database
         userdb = Firestore.firestore()

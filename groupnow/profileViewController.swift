@@ -8,10 +8,18 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate &
     var userdb: Firestore!
     
     //label
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var mobileLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabelProfile: UILabel!
     @IBOutlet weak var mobileLabelProfile: UILabel!
     @IBOutlet weak var emailLabelProfile: UILabel!
     @IBOutlet weak var addressLabelProfile: UILabel!
+    
+    //nav
+    @IBOutlet weak var nav: UINavigationBar!
+    
     
     //edit and update
     @IBOutlet weak var editbtn: UIButton!
@@ -26,11 +34,33 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate &
 
     override func viewDidLoad()
     {
+        //View
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        view.backgroundColor = backgroundColor
         
         //edit Btn
+        let labelbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
         editbtn.layer.cornerRadius = 0.5 * editbtn.bounds.size.width
         editbtn.clipsToBounds = true
-        editbtn.backgroundColor = UIColor(red: 58/255, green: 90/255, blue: 64/255, alpha: 1)
+        editbtn.backgroundColor = labelbackgroundColor
         
         
         //userdatabase
@@ -45,6 +75,11 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate &
                     document?.reference.updateData(["name": self.updateName], completion: { (error) in })
                 }
             }
+            //read the original order database
+            
+            //put data in the new database
+            
+            //delete the old one
         }
         if updatemobile != ""
         {
@@ -128,7 +163,20 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate &
                 }
             }
         }
-
+        
+        //Label
+        nameLabelProfile.textColor = labelbackgroundColor
+        mobileLabelProfile.textColor = labelbackgroundColor
+        emailLabelProfile.textColor = labelbackgroundColor
+        addressLabelProfile.textColor = labelbackgroundColor
+        nameLabel.textColor = labelbackgroundColor
+        mobileLabel.textColor = labelbackgroundColor
+        emailLabel.textColor = labelbackgroundColor
+        addressLabel.textColor = labelbackgroundColor
+        
+        //nav
+        nav.tintColor = labelbackgroundColor
+        
         super.viewDidLoad()
     }
 }

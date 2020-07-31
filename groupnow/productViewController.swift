@@ -3,6 +3,10 @@ import Firebase
 import FirebaseStorage
 class productViewController: UIViewController
 {
+    @IBOutlet weak var productview: UIView!
+    @IBOutlet weak var navigation: UINavigationItem!
+    @IBOutlet weak var nav: UINavigationBar!
+    
     var name : String?
     var id : String?
     var price : String?
@@ -16,6 +20,7 @@ class productViewController: UIViewController
     @IBOutlet weak var productdetail: UILabel!
     @IBOutlet weak var productmember: UILabel!
     @IBOutlet weak var producttotalmember: UILabel!
+    @IBOutlet weak var slash: UILabel!
     
     var ref: DatabaseReference!
     @IBOutlet weak var plusoneBtn: UIButton!
@@ -29,6 +34,43 @@ class productViewController: UIViewController
     
     override func viewDidLoad()
     {
+        //navigation
+        let navbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        nav.tintColor = navbackgroundColor
+        
+        //View
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        view.backgroundColor = backgroundColor
+        let viewbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        productview.backgroundColor = viewbackgroundColor
+        
         if let name = name,let detail=detail,let memberNum = memberNum,let price = price,let totalmember = totalmember,let id = id
         {
             //product image
@@ -49,20 +91,34 @@ class productViewController: UIViewController
                 }
             }
             
+            //product info
+            let labelbackgroundColor = UIColor{(traitCollection) -> UIColor in
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    return UIColor(red: 0.64, green: 0.69, blue: 0.54, alpha: 1.00)
+                case .dark:
+                    return UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
+                default:
+                    fatalError()
+                }
+            }
             //product name
             productname.text = name
             productname.layer.masksToBounds = true
             productname.layer.cornerRadius = 5
+            productname.backgroundColor = labelbackgroundColor
             
             //product price for one person
             productprice.text = price
             productprice.layer.masksToBounds = true
             productprice.layer.cornerRadius = 5
+            productprice.backgroundColor = labelbackgroundColor
             
             //product detail
             let label = UILabel()
-            label.frame = CGRect(x:100,y:430,width:220, height:0)
+            label.frame = CGRect(x:100,y:430,width:220, height:150)
             label.text = detail
+            productdetail.backgroundColor = labelbackgroundColor
             label.numberOfLines = 0
             label.sizeToFit()
             productdetail.layer.masksToBounds = true
@@ -73,10 +129,14 @@ class productViewController: UIViewController
             productmember.text = memberNum
             productmember.layer.masksToBounds = true
             productmember.layer.cornerRadius = 5
+            productmember.backgroundColor = labelbackgroundColor
+            
+            slash.backgroundColor = labelbackgroundColor
             
             producttotalmember.text = totalmember
             producttotalmember.layer.masksToBounds = true
             producttotalmember.layer.cornerRadius = 5
+            producttotalmember.backgroundColor = labelbackgroundColor
         }
         
         //add to order

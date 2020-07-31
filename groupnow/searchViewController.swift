@@ -3,8 +3,12 @@ import Firebase
 import FirebaseStorage
 class searchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate
 {
+    //nav
+    @IBOutlet weak var nav: UINavigationBar!
+    
+    //tableview
     @IBOutlet weak var result: UITableView!
-
+    
     var filterDataList = [String]()  //search result
     var group = [String]()
     var isShowSearchResult: Bool = false
@@ -32,12 +36,52 @@ class searchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier:"result",for:indexPath) as! resultTableViewCell
         if isShowSearchResult
         {
+            let labelbackgroundColor = UIColor{(traitCollection) -> UIColor in
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    return UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
+                case .dark:
+                    return UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
+                default:
+                    fatalError()
+                }
+            }
+            let viewbackgroundColor = UIColor{(traitCollection) -> UIColor in
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    return UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+                case .dark:
+                    return UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+                default:
+                    fatalError()
+                }
+            }
             let products : productModel
             products = Product[indexPath.row]
             cell.resultName.text = products.name
+            cell.resultName.textColor = labelbackgroundColor
             cell.resultPrice.text = products.price
+            cell.resultPrice.textColor = labelbackgroundColor
             cell.resultmember.text = products.member
+            cell.resultmember.textColor = labelbackgroundColor
             cell.resulttotalmember.text = products.totalmember
+            cell.resulttotalmember.textColor = labelbackgroundColor
+            cell.resultview.backgroundColor = viewbackgroundColor
+            
+            cell.slash.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
+            
+            let backgroundColor = UIColor{(traitCollection) -> UIColor in
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+                case .dark:
+                    return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+                default:
+                    fatalError()
+                }
+            }
+            cell.backgroundColor = backgroundColor
+
             let storageRef = Storage.storage().reference(forURL: "gs://groupnow-14e0a.appspot.com/")
             var imageName = "product/"
             imageName.append(products.id!)
@@ -112,6 +156,32 @@ class searchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad()
     {
+        //nav
+        let navbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        nav.tintColor = navbackgroundColor
+        
+        //View
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        view.backgroundColor = backgroundColor
+        
         //SearchController
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchBar.sizeToFit()

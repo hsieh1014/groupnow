@@ -8,6 +8,11 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
 {
     //greeting
     @IBOutlet weak var greeting: UILabel!
+    @IBOutlet weak var greetingtitle: UILabel!
+    @IBOutlet weak var greetingView: UIView!
+    
+    //toolbar
+    @IBOutlet weak var anyToolbarButton: UIToolbar!
     
     //user database
     var userdb : Firestore!
@@ -24,6 +29,35 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad()
     {
+        let textbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.23, green: 0.23, blue: 0.23, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        
+        //View
+        view.backgroundColor = backgroundColor
+        
+        //top
+        greeting.textColor = textbackgroundColor
+        greetingtitle.textColor = textbackgroundColor
+        greetingView.backgroundColor = backgroundColor
+        
         //tableview
         productTableView.dataSource = self
         productTableView.delegate = self
@@ -69,6 +103,20 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 self.productTableView.reloadData()
             }
         })
+        
+        //toolbar
+        let barbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.20, green: 0.31, blue: 0.25, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        anyToolbarButton.tintColor = barbackgroundColor
+        
         super.viewDidLoad()
     }
     
@@ -88,8 +136,12 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let products : productModel
         products = Product[indexPath.row]
         cell.homePageProductName.text = products.name
+        cell.homePageProductName.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
         cell.homePageMember.text = products.member
+        cell.homePageMember.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
         cell.homePageTotalMember.text = products.totalmember
+        cell.homePageTotalMember.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
+        cell.slash.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
         let storageRef = Storage.storage().reference(forURL: "gs://groupnow-14e0a.appspot.com/")
         var imageName = "product/"
         imageName.append(products.id!)
@@ -106,6 +158,28 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 cell.homePageProduct.image = image
             }
         }
+        let viewbackgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        let backgroundColor = UIColor{(traitCollection) -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.89, green: 0.82, blue: 0.66, alpha: 1.00)
+            case .dark:
+                return UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1.00)
+            default:
+                fatalError()
+            }
+        }
+        cell.homePageView.backgroundColor = viewbackgroundColor
+        cell.backgroundColor = backgroundColor
         return cell
     }
     
