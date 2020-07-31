@@ -28,7 +28,6 @@ class productViewController: UIViewController
     {
         displayAlert(title: "成功加入購物車", message: "請至購物車結帳")
         self.ref.child(user).child(id!).setValue(["productid":  id,"productname": name,"productprice": price,"productmember": memberNum, "producttotalmember": totalmember])
-        //self.performSegue(withIdentifier: "gobacktohome", sender: self)
         
     }
     

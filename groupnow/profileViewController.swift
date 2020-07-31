@@ -6,6 +6,9 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate &
 {
     //user database
     var userdb: Firestore!
+    //order database
+    var ref : DatabaseReference?
+    var ref2 : DatabaseReference?
     
     //label
     @IBOutlet weak var nameLabel: UILabel!
@@ -76,10 +79,25 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate &
                 }
             }
             //read the original order database
-            
             //put data in the new database
-            
             //delete the old one
+            ref = Database.database().reference().child("order").child(user)
+            ref2 = Database.database().reference().child("order").child(updateName)
+            ref?.observe(DataEventType.value, with:
+            {(snapshot) in
+                for i in snapshot.children.allObjects as![DataSnapshot]
+                {
+                    let orderObject = i.value as? [String: AnyObject]
+                    let productId = orderObject?["productid"]! as! String
+                    let productName = orderObject?["productname"]! as! String
+                    let productPrice = orderObject?["productprice"]! as! String
+                    let productMember = orderObject?["productmember"]! as! String
+                    let productTotalMember = orderObject?["producttotalmember"]! as! String
+                    self.ref2!.child(productId).setValue(["productid":  productId,"productname": productName,"productprice": productPrice,"productmember": productMember, "producttotalmember": productTotalMember])
+                    self.ref!.child(productId).setValue(["productid":  nil,"productname": nil,"productprice": nil,"productmember": nil, "producttotalmember": nil])
+                }
+            })
+            user = updateName
         }
         if updatemobile != ""
         {
