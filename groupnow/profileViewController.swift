@@ -191,6 +191,9 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate &
         mobileLabel.textColor = labelbackgroundColor
         emailLabel.textColor = labelbackgroundColor
         addressLabel.textColor = labelbackgroundColor
+        addressLabelProfile.numberOfLines = 4
+//        addressLabelProfile.adjustsFontSizeToFitWidth = true
+//        addressLabelProfile.minimumScaleFactor = 0.1
         
         //nav
         nav.tintColor = labelbackgroundColor
