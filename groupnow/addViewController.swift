@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
-class addViewController: UIViewController
+class addViewController: UIViewController,UITextFieldDelegate,UITextViewDelegate
 {
     //nav
     @IBOutlet weak var nav: UINavigationBar!
@@ -141,8 +141,26 @@ class addViewController: UIViewController
         memberTextField.textColor = UIColor(red: 0.23, green: 0.23, blue: 0.23, alpha: 1.00)
         detailTextView.textColor = UIColor(red: 0.23, green: 0.23, blue: 0.23, alpha: 1.00)
         
+        titleTextField.delegate = self
+        detailTextView.delegate = self
+        
         super.viewDidLoad()
     }
+    
+    //Set the maximum character length of a TextField
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        let maxLength = 11
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        return textView.text.count + (text.count - range.length) <= 10
+    }
+    
     //touch screen to hide the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
