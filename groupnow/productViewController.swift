@@ -32,10 +32,10 @@ class productViewController: UIViewController
     
     override func viewDidLoad()
     {
-        if #available(iOS 11.0, *)
-        {
-             self.additionalSafeAreaInsets.top = 20
-        }
+//        if #available(iOS 11.0, *)
+//        {
+//             self.additionalSafeAreaInsets.top = 20
+//        }
         //navigation
         let navbackgroundColor = UIColor{(traitCollection) -> UIColor in
             switch traitCollection.userInterfaceStyle {

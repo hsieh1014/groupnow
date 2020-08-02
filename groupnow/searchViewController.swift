@@ -156,6 +156,7 @@ class searchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad()
     {
+        dismiss(animated: true, completion: nil)
         //nav
         let navbackgroundColor = UIColor{(traitCollection) -> UIColor in
             switch traitCollection.userInterfaceStyle {

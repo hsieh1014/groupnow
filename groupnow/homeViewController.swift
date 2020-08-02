@@ -4,9 +4,9 @@ import FirebaseFirestore
 import FirebaseCore
 import FirebaseDatabase
 import FirebaseStorage
+import SVProgressHUD
 class homeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 {
-    
     //greeting
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var greetingtitle: UILabel!
@@ -121,12 +121,10 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         super.viewDidLoad()
     }
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return Product.count
@@ -182,6 +180,7 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
         cell.homePageView.backgroundColor = viewbackgroundColor
         cell.backgroundColor = backgroundColor
+        SVProgressHUD.dismiss()
         return cell
     }
     
@@ -224,5 +223,11 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     @IBAction func backtohomepage(segue:UIStoryboardSegue)
     {
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: view.frame.width/2, vertical: view.frame.height/2))
+        SVProgressHUD.show(withStatus: "loading...")
     }
 }

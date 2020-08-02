@@ -354,6 +354,7 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.8)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -363,6 +364,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseFirestoreSwift
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
@@ -390,6 +392,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -416,7 +419,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 1bf023ef265711944ce459abdf83b8b1820421d8
+PODFILE CHECKSUM: cbf44c2b3b925a6f22ecc991c3099f328b65f384
 
 COCOAPODS: 1.9.3

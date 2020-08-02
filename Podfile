@@ -16,4 +16,6 @@ target 'groupnow' do
   pod 'Firebase/Storage'
   pod 'FirebaseFirestoreSwift'
 
+  #hud
+  pod 'SVProgressHUD'
 end

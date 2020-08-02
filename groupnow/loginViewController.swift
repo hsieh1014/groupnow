@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseAuth
+import SVProgressHUD
 class loginViewController: UIViewController, UITextFieldDelegate
 {
     @IBOutlet weak var signinBtn: UIButton!
@@ -79,7 +80,7 @@ class loginViewController: UIViewController, UITextFieldDelegate
         
         //password Textfield
         userpassword.backgroundColor = textfieldbackgroundColor
-        userpassword.attributedPlaceholder = NSAttributedString(string: "email",
+        userpassword.attributedPlaceholder = NSAttributedString(string: "password",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)])
         userpassword.textColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
         userpassword.isSecureTextEntry = true
