@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CQV-8r-L8l">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -62,9 +62,9 @@
         <!--Home View Controller-->
         <scene sceneID="YWw-t7-8eq">
             <objects>
-                <viewController id="CQV-8r-L8l" customClass="homeViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="CQV-8r-L8l" customClass="homeViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ReB-1Q-xhG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-qF-v30" userLabel="greetingView">
@@ -158,7 +158,7 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEk-ze-OMu">
-                                <rect key="frame" x="0.0" y="672" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Item" image="person" catalog="system" id="FAX-Jt-8tL">
@@ -212,24 +212,11 @@
         <!--Profile View Controller-->
         <scene sceneID="TIA-fm-IOX">
             <objects>
-                <viewController id="A3T-ZC-bai" customClass="profileViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="A3T-ZC-bai" customClass="profileViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rco-eW-Seb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nf1-k8-GC0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="PROFILE" id="yCW-5F-cQK">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.left" catalog="system" id="oPM-J4-wcs">
-                                            <connections>
-                                                <segue destination="hEd-4q-KNV" kind="unwind" unwindAction="backtohomepageWithSegue:" id="WWA-TK-WJ9"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3oV-S6-4G9">
                                 <rect key="frame" x="45" y="220" width="324" height="276"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -307,6 +294,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nf1-k8-GC0" customClass="CustomNavigationBar" customModule="groupnow" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="PROFILE" id="yCW-5F-cQK">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.left" catalog="system" id="oPM-J4-wcs">
+                                            <connections>
+                                                <segue destination="hEd-4q-KNV" kind="unwind" unwindAction="backtohomepageWithSegue:" id="WWA-TK-WJ9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.85490196080000003" green="0.84313725490000002" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="QyR-pC-Eth"/>
@@ -334,12 +334,12 @@
         <!--Editprofile View Controller-->
         <scene sceneID="WPC-1g-cNT">
             <objects>
-                <viewController id="Jzw-9E-hoK" customClass="editprofileViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Jzw-9E-hoK" customClass="editprofileViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DaF-O9-8jK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Khg-YT-ODy">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Khg-YT-ODy" customClass="CustomNavigationBar" customModule="groupnow" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -434,12 +434,12 @@
         <!--Search View Controller-->
         <scene sceneID="Ey5-Vd-sMR">
             <objects>
-                <viewController id="riY-uF-q0n" customClass="searchViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="riY-uF-q0n" customClass="searchViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hz8-gK-Pzw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6G-Fr-bpR">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6G-Fr-bpR" customClass="CustomNavigationBar" customModule="groupnow" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -453,7 +453,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fID-Bb-dmx">
-                                <rect key="frame" x="0.0" y="57" width="414" height="659"/>
+                                <rect key="frame" x="0.0" y="57" width="414" height="679"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -548,12 +548,12 @@
         <!--Add View Controller-->
         <scene sceneID="Wyf-JJ-Ytn">
             <objects>
-                <viewController id="rkm-hp-zvw" customClass="addViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="rkm-hp-zvw" customClass="addViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hbS-UJ-nsK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Gg-4e-OFx">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Gg-4e-OFx" customClass="CustomNavigationBar" customModule="groupnow" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -670,9 +670,9 @@
         <!--目前訂單-->
         <scene sceneID="bNH-LJ-Vs2">
             <objects>
-                <viewController id="n2W-8x-Zlf" customClass="orderViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="n2W-8x-Zlf" customClass="orderViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PHd-3y-yzg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qfr-QF-n9c">
@@ -760,7 +760,7 @@
                                     <outlet property="delegate" destination="n2W-8x-Zlf" id="BKU-AG-ysz"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mtf-48-a5j">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mtf-48-a5j" customClass="CustomNavigationBar" customModule="groupnow" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -794,9 +794,9 @@
         <!--Cart View Controller-->
         <scene sceneID="7Zf-4i-tg1">
             <objects>
-                <viewController id="B1o-ZU-wbE" customClass="cartViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="B1o-ZU-wbE" customClass="cartViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tzb-sn-QO8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="209" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bwo-lS-gPg">
@@ -901,7 +901,7 @@
                                     <outlet property="delegate" destination="B1o-ZU-wbE" id="k35-PN-zln"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfG-1Y-Njg">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfG-1Y-Njg" customClass="CustomNavigationBar" customModule="groupnow" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -976,24 +976,11 @@
         <!--Product View Controller-->
         <scene sceneID="5Bj-0L-fe4">
             <objects>
-                <viewController id="83b-nc-9pg" customClass="productViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="83b-nc-9pg" customClass="productViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YvT-Fw-gXn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNS-sy-WZO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="PRODUCT" id="LWI-ud-JXM">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.left" catalog="system" id="WVb-Hh-gCd">
-                                            <connections>
-                                                <segue destination="526-8l-Xz3" kind="unwind" unwindAction="backtohomepageWithSegue:" id="tqw-M7-1Pm"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1RP-7J-Yro">
                                 <rect key="frame" x="39" y="89" width="336" height="588"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1066,6 +1053,19 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNS-sy-WZO" customClass="CustomNavigationBar" customModule="groupnow" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="PRODUCT" id="LWI-ud-JXM">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.left" catalog="system" id="WVb-Hh-gCd">
+                                            <connections>
+                                                <segue destination="526-8l-Xz3" kind="unwind" unwindAction="backtohomepageWithSegue:" id="tqw-M7-1Pm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.85490196080000003" green="0.84313725490000002" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="LuD-Ts-zAT"/>
@@ -1073,7 +1073,6 @@
                     <navigationItem key="navigationItem" id="awn-HY-Njj"/>
                     <connections>
                         <outlet property="nav" destination="BNS-sy-WZO" id="bxu-Ri-rFS"/>
-                        <outlet property="navigation" destination="LWI-ud-JXM" id="LZS-nm-T6S"/>
                         <outlet property="plusoneBtn" destination="Fql-jz-gli" id="x32-dC-lT8"/>
                         <outlet property="productdetail" destination="q3K-7m-RVR" id="WkD-9C-FVf"/>
                         <outlet property="productimage" destination="hG1-BI-d9y" id="Bbd-hz-cIN"/>
@@ -1093,9 +1092,9 @@
         <!--Signup View Controller-->
         <scene sceneID="Vb3-Ms-zqa">
             <objects>
-                <viewController id="5Vf-WI-mng" customClass="signupViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="5Vf-WI-mng" customClass="signupViewController" customModule="groupnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q0P-1E-PEY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hello" translatesAutoresizingMaskIntoConstraints="NO" id="YDe-3S-C37">
@@ -1204,11 +1203,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jye-tg-9k5"/>
         <segue reference="UXe-Tz-2ck"/>
         <segue reference="aFD-bG-miQ"/>
         <segue reference="35i-8K-gMd"/>
-        <segue reference="xND-8k-ldc"/>
+        <segue reference="nFI-DL-y9v"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add" width="33.333332061767578" height="33.333332061767578"/>

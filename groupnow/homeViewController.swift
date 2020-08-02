@@ -6,6 +6,7 @@ import FirebaseDatabase
 import FirebaseStorage
 class homeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 {
+    
     //greeting
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var greetingtitle: UILabel!
@@ -29,6 +30,7 @@ class homeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad()
     {
+        
         let textbackgroundColor = UIColor{(traitCollection) -> UIColor in
             switch traitCollection.userInterfaceStyle {
             case .light:

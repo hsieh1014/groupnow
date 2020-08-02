@@ -4,7 +4,6 @@ import FirebaseStorage
 class productViewController: UIViewController
 {
     @IBOutlet weak var productview: UIView!
-    @IBOutlet weak var navigation: UINavigationItem!
     @IBOutlet weak var nav: UINavigationBar!
     
     var name : String?
@@ -33,6 +32,10 @@ class productViewController: UIViewController
     
     override func viewDidLoad()
     {
+        if #available(iOS 11.0, *)
+        {
+             self.additionalSafeAreaInsets.top = 20
+        }
         //navigation
         let navbackgroundColor = UIColor{(traitCollection) -> UIColor in
             switch traitCollection.userInterfaceStyle {
@@ -45,6 +48,8 @@ class productViewController: UIViewController
             }
         }
         nav.tintColor = navbackgroundColor
+        let height = CGFloat(72)
+        nav.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: height)
         
         //View
         let backgroundColor = UIColor{(traitCollection) -> UIColor in
